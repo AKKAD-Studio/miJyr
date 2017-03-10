@@ -13,9 +13,9 @@
                             <label class="col-md-4 control-label">Войти с помощью:</label>
 
                             <div class="col-md-6">
-                                
+
                                 <div id="rwSocial">
-                                  
+
                                     <a data-soc="vkontakte" class="rwLoginBut" onclick="yaCounter23073376.reachGoal('reg-vkontakte'); mixStat('reg-vkontakte')" title="ВКонтакте" href="/app/vkontakte/login/" target="_blank"><b>ВКонтакте</b></a>
                                     <a data-soc="facebook" class="rwLoginBut" onclick="yaCounter23073376.reachGoal('reg-facebook'); mixStat('reg-facebook')" title="Facebook" href="/app/facebook/login/" target="_blank"><b>Facebook</b></a>
                                     <a data-soc="odnoklassniki" class="rwLoginBut" onclick="yaCounter23073376.reachGoal('reg-odnoklassniki'); mixStat('reg-odnoklassniki')" title="Одноклассники" href="/app/odnoklassniki/login/" target="_blank"><b>Одноклассники</b></a>
@@ -26,16 +26,16 @@
                                     <a data-soc="instagram" class="rwLoginBut" onclick="yaCounter23073376.reachGoal('reg-instagram'); mixStat('reg-instagram')" title="Instagram" href="/app/instagram/login/" target="_blank"><b>Instagram</b></a>
                                     <a data-soc="linkedin" class="rwLoginBut" onclick="yaCounter23073376.reachGoal('reg-linkedin'); mixStat('reg-linkedin')" title="LinkedIn" href="/app/linkedin/login/" target="_blank"><b>LinkedIn</b></a>
                                     <a data-soc="youtube" class="rwLoginBut" onclick="yaCounter23073376.reachGoal('reg-youtube'); mixStat('reg-youtube')" title="Youtube" href="/app/youtube/login/" target="_blank"><b>Youtube</b></a>
-                               
+
                                 </div>
 
 
                             </div>
                         </div-->
+ 
 
 
-                        <script src="//ulogin.ru/js/ulogin.js"></script>
-                        <div id="uLogin" data-ulogin="display=small;theme=flat;fields=first_name,last_name;providers=vkontakte,odnoklassniki,mailru,facebook;hidden=other;redirect_uri=http%3A%2F%2Fmyjur%2F;mobilebuttons=0;"></div> 
+
 
                         <div class="form-group">
                             <label for="email" class="col-md-4 control-label">E-mail <span class="form-required" title="Обязательное поле">*</span></label>

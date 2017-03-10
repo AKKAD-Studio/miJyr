@@ -15,10 +15,6 @@ class EventServiceProvider extends ServiceProvider
     protected $listen = [
         'App\Events\SomeEvent' => [
             'App\Listeners\EventListener',
-
-        // SocialiteProviders\Manager\SocialiteWasCalled::class => [
-        //     JhaoDa\SocialiteProviders\Odnoklassniki\OdnoklassnikiExtendSocialite::class
-
         ],
     ];
 
@@ -34,6 +30,3 @@ class EventServiceProvider extends ServiceProvider
         //
     }
 }
-
-
- 

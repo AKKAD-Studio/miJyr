@@ -3,11 +3,9 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
-use Validator;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
-
-
 
 class RegisterController extends Controller
 {
@@ -25,22 +23,20 @@ class RegisterController extends Controller
     use RegistersUsers;
 
     /**
-     * Where to redirect users after login / registration.
+     * Where to redirect users after registration.
      *
      * @var string
      */
-    protected $redirectTo = '/control';
+    protected $redirectTo = '/home';
 
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct(\Illuminate\Http\Request $request) {
-        $this->request = $request;
-
+    public function __construct()
+    {
         $this->middleware('guest');
-
     }
 
     /**
@@ -55,7 +51,6 @@ class RegisterController extends Controller
             'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
-            'g-recaptcha-response' => 'required|min:55',
         ]);
     }
 
@@ -65,28 +60,12 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return User
      */
-
-
-
-    public function create(array $data) {
-        $secret   = reCAPTCHA;
-
-        if(isset($data['g-recaptcha-response']) && $data['g-recaptcha-response']!=''){
-          $response = $data['g-recaptcha-response'];
-        }
-
-        $rsp = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$secret&response=$response");
-        $arr = json_decode($rsp, TRUE);
-
-        if($arr['success']==true){
-            return User::create([
-              'name'      => $data['name'],
-              'email'     => $data['email'],
-              'password'  => bcrypt($data['password']),
-          ]);
-        }
+    protected function create(array $data)
+    {
+        return User::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => bcrypt($data['password']),
+        ]);
     }
-
-
-
 }
