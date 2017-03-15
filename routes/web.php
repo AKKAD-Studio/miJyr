@@ -11,7 +11,9 @@
 |
 */
 
-Route::get('/',     'Pub\PublicController@index');
+Route::get('/',               'Pub\PublicController@index');
+Route::get('/auth/vkontakte', 'Pub\SociosController@vkontakte');
+Route::get('/auth/facebook',  'Pub\SociosController@facebook');
 
 Route::get('/logout', function () {Auth::logout(); return redirect('/'); });
 

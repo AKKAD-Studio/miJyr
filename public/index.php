@@ -3,6 +3,19 @@
  
 define('reCAPTCHA', '6LeqBRcUAAAAADYKB6BNDQWKdDCxMwQHGOrDe399'); //Секретный ключ reCAPTCHA
 
+// VK 
+define('VK_CLIENT_ID',      '5924607'); 
+define('VK_CLIENT_SECRET',  'ccW7sYKI1juh3h0g6kaJ'); 
+define('VK_REDIRECT_URI',   'http://'.$_SERVER['HTTP_HOST'].'/auth/vkontakte');
+ 
+// FB 
+define('FB_CLIENT_ID',      '1789656138023406'); 
+define('FB_CLIENT_SECRET',  '8602c8f951f178cf4105c0a5a90b86fc'); 
+define('FB_REDIRECT_URI',   'http://'.$_SERVER['HTTP_HOST'].'/auth/facebook');
+
+ 
+
+
 /**
  * Laravel - A PHP Framework For Web Artisans
  *

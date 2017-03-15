@@ -1,21 +1,76 @@
 
 @extends('index')
+
+
+@section('top_menu')
+
+   <div class="flex">
+
+        <div class="w_1200 div_c tab">
+
+            <div class="td_top">
+                <div class="logo"></div>
+            </div>  
+          @if (Route::has('login'))
+            <div class="td_top">
+                <ul>
+                @if (Auth::check())
+                {{ Auth::user()->name }}:                
+                    <li>
+                        <a href="/control">Кабинет</a>
+                    </li>
+                    <li>
+                        <a href="{{ url('/logout') }}">Выход</a>
+                    </li> 
+                    @else 
+                    <li>
+                        <a href="{{ url('/register') }}">&nbsp;</a>
+                    </li> 
+                    <li>
+                        <a class="btn" href="{{ url('/login') }}">Вход</a>
+                    </li>
+                    @endif 
+                </ul>
+                <div class="px_5"></div>
+            </div>
+           @endif
+
+        </div>
+   </div>
+
+@endsection
+
+
 @section('content')
 
-
+ 
             <div class="px_30"></div>
             <div class="pad_0_20">
               <div class="panel panel-default">
                 <div class="panel-heading">Регистрация</div>
                 <div class="panel-body">
+ 
+                    <div class="px_10"></div><div class="px_5"></div>
+
+                    <div class="social_buttons a_c">
+                        <a class="vkontakte" title="Авторизоваться через Вконтакте" href="/auth/vkontakte"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 498 498" enable-background="new 0 0 498 498"><path class="st0" d="M249 0c137.5 0 249 111.5 249 249s-111.5 249-249 249-249-111.5-249-249 111.5-249 249-249z"></path><path class="st1" d="M236.7 336.9h18.6s5.6-.7 8.4-3.7c2.6-2.8 2.5-8.2 2.5-8.2s-.3-24.9 11.1-28.5 26 24 41.5 34.6c11.7 8.1 20.6 6.3 20.6 6.3l41.4-.5s21.6-1.3 11.4-18.3c-.9-1.4-6-12.6-30.8-35.6-26-24.1-22.5-20.2 8.8-61.9 19-25.4 26.6-40.8 24.2-47.5-2.3-6.3-16.3-4.7-16.3-4.7l-46.6.3s-3.5-.4-6 1.1l-4.1 5s-7.4 19.7-17.3 36.4c-20.7 35.3-29 37.1-32.4 34.9-7.9-5.1-5.9-20.5-5.9-31.5 0-34.2 5.1-48.4-10-52.1-5-1.2-8.8-2.1-21.7-2.2-16.6-.2-30.7 0-38.7 3.9-5.4 2.6-9.4 8.4-6.9 8.7 3.1.4 10 1.9 13.8 6.9 4.8 6.6 4.6 21.1 4.6 21.1s2.7 40.2-6.4 45.2c-6.3 3.4-15-3.6-33.4-35.6-9.5-16.4-16.6-34.5-16.6-34.5s-1.4-3.4-3.8-5.2c-2.9-2.2-7.2-2.8-7.2-2.8l-44.3.3s-6.7.2-9.1 3.1c-2.2 2.6-.2 7.9-.2 7.9s34.7 81.1 73.9 122.1c36.1 37.5 76.9 35 76.9 35z"></path></svg></a>
+                        <a class="instagram" title="Авторизоваться через Instagram" href="/auth/instagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 498 498" enable-background="new 0 0 498 498"><path class="st0" d="M249 0c137.5 0 249 111.5 249 249s-111.5 249-249 249-249-111.5-249-249 111.5-249 249-249z"></path><path class="st1" d="m 381.84071,213.26799 c -25.22518,0 -50.46243,0 -75.68761,0 29.53767,48.66664 -4.29276,112.69981 -65.34028,106.74276 -37.29488,-3.63648 -71.41567,-43.7187 -56.28472,-89.27479 0.95103,-2.88157 2.98018,-6.02609 4.52614,-9.05666 1.46817,-2.88156 3.94435,-6.26055 3.23436,-8.41241 -24.80336,0 -75.04446,0 -75.04446,0 v 124.85936 c 2.51671,24.42207 21.72458,43.61679 46.57615,45.92862 h 86.03932 86.04371 c 24.89759,-2.56602 43.4645,-23.29027 45.92862,-45.2811 0.009,10e-4 0.009,-103.83051 0.009,-125.50578 z" ></path><path class="st1" d="m 242.75541,200.97697 c -10.16765,1.22164 -15.63166,3.41952 -20.70781,6.46872 -11.65554,6.99793 -22.62192,20.04714 -24.58205,37.52058 -3.96406,35.27341 21.91304,59.51909 51.75421,59.51909 23.77344,0 52.69755,-16.98479 52.40172,-52.39734 -0.26953,-32.24831 -25.99871,-55.06307 -58.86607,-51.11105 z m 44.63684,61.454 c -4.33329,17.85035 -24.14268,31.34987 -44.63684,28.46393 -19.59244,-2.75447 -40.64867,-27.10313 -29.12023,-54.33666 4.24674,-10.0241 13.82384,-21.26878 33.64199,-22.64273 24.34428,-1.6884 47.01111,20.06796 40.11508,48.51546 z"></path><path class="st1" d="m 366.96286,133.04985 c -7.13379,-7.13379 -18.80905,-13.67592 -31.6983,-14.87785 h -85.78185 -0.23775 -61.46606 v 67.28834 H 176.77965 V 118.172 H 169.991 v 67.28834 h -11.00801 v -66.64848 c -2.43563,0.46346 -4.82087,1.10332 -7.11297,1.89438 v 64.7541 H 140.87078 V 125.9336 c -3.50061,2.16062 -6.58816,4.59954 -9.10926,7.11296 -14.62804,14.63134 -15.80368,39.7875 -14.87785,71.8134 h 82.16182 c 3.33297,-0.77464 7.33429,-4.89099 10.35172,-7.11736 11.06936,-8.15055 25.30735,-12.5978 39.759,-12.75448 h 0.40977 c 14.45165,0.15559 28.69402,4.60393 39.75901,12.75448 3.02181,2.22637 7.01436,6.34272 10.34733,7.11736 h 82.16182 c 0.3758,-32.34255 -0.23557,-57.17877 -14.87128,-71.81011 z m -11.28193,43.64091 c 0,3.77123 -3.05468,6.8259 -6.81823,6.8259 h -28.4234 c -3.76357,0 -6.81824,-3.05467 -6.81824,-6.8259 v -28.41464 c 0,-3.76794 3.05467,-6.81824 6.81824,-6.81824 h 28.4234 c 3.76355,0 6.81823,3.0503 6.81823,6.81824 z"></path></svg></a>
+                        <a class="ok" title="Авторизоваться через Одноклассники" href="/auth/ok"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 498 498" enable-background="new 0 0 498 498"><path class="st0" d="M 251,2 C 388.5,2 500,113.5 500,251 500,388.5 388.5,500 251,500 113.5,500 2,388.5 2,251 2,113.5 113.5,2 251,2 Z"></path> <path class="st1" d="m 324.56779,248.32445 c -10.77711,0 -32.33134,20.14745 -75.43983,20.14745 -43.10847,0 -64.6627,-20.14745 -75.43981,-20.14745 -11.89796,0 -21.55425,9.02606 -21.55425,20.14745 0,10.07375 6.1214,14.9192 10.77711,17.46787 12.7709,6.98109 53.88561,22.82707 53.88561,22.82707 l -45.80277,54.78093 c 0,0 -8.08284,9.41893 -8.08284,15.73516 0,11.12141 9.65631,20.14746 21.55425,20.14746 11.00343,0 15.99324,-6.60836 15.99324,-6.60836 0,0 48.59403,-53.90454 48.66946,-53.83401 0.0754,-0.0705 48.66948,53.83401 48.66948,53.83401 0,0 4.98981,6.60836 15.99324,6.60836 11.89793,0 21.55424,-9.02605 21.55424,-20.14746 0,-6.31623 -8.08284,-15.73516 -8.08284,-15.73516 l -45.80276,-54.78093 c 0,0 41.11472,-15.84598 53.8856,-22.82707 4.65572,-2.54867 10.77712,-7.39412 10.77712,-17.46787 0,-11.12139 -9.65629,-20.14745 -21.55425,-20.14745 z"></path><path class="st1" d="m 249.12796,99.21853 c -41.66432,0 -75.43981,31.57107 -75.43981,70.5161 0,38.94503 33.77549,70.51611 75.43981,70.51611 41.65358,0 75.43983,-31.57108 75.43983,-70.51611 0,-38.94503 -33.78625,-70.5161 -75.43983,-70.5161 z m 0,105.77415 c -20.83215,0 -37.71991,-15.77547 -37.71991,-35.25805 0,-19.47253 16.88776,-35.25805 37.71991,-35.25805 20.82141,0 37.71992,15.78552 37.71992,35.25805 0,19.48258 -16.89851,35.25805 -37.71992,35.25805 z"></path></svg></a>
+                        <a class="facebook" title="Авторизоваться через Facebook" href="/auth/facebook"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 498 498" enable-background="new 0 0 498 498"><path class="st0" d="M249 0c137.5 0 249 111.5 249 249s-111.5 249-249 249-249-111.5-249-249 111.5-249 249-249z"></path><path class="st1" d="M267.6 389.4v-128.5h43.2l6.5-50.1h-49.6v-32c0-14.5 4-24.4 24.8-24.4h26.5v-44.8c-4.6-.6-20.3-2-38.7-2-38.3 0-64.4 23.3-64.4 66.2v36.9h-43.3v50.1h43.3v128.6h51.7z"></path></svg></a>
+                        <a class="twitter" title="Авторизоваться через Twitter" href="/auth/twitter"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 498 498" enable-background="new 0 0 498 498"><path class="st0" d="M249 0c137.5 0 249 111.5 249 249s-111.5 249-249 249-249-111.5-249-249 111.5-249 249-249z"></path><path class="st1" d="M395.7 165.2c-10.1 4.5-20.9 7.5-32.2 8.8 11.6-6.9 20.5-17.9 24.7-31-10.8 6.4-22.8 11.1-35.6 13.6-10.2-10.9-24.8-17.7-40.9-17.7-31 0-56.1 25.1-56.1 56.1 0 4.4.5 8.7 1.5 12.8-46.6-2.3-87.9-24.7-115.6-58.6-4.8 8.3-7.6 17.9-7.6 28.2 0 19.5 9.9 36.6 25 46.7-9.2-.3-17.8-2.8-25.4-7v.7c0 27.2 19.3 49.8 45 55-4.7 1.3-9.7 2-14.8 2-3.6 0-7.1-.4-10.6-1 7.1 22.3 27.9 38.5 52.4 39-19.2 15-43.4 24-69.7 24-4.5 0-9-.3-13.4-.8 24.8 15.9 54.3 25.2 86 25.2 103.2 0 159.6-85.5 159.6-159.6 0-2.4-.1-4.9-.2-7.3 10.9-7.9 20.4-17.8 27.9-29.1z"></path></svg>
+                        <a class="google_oauth2" title="Авторизоваться через Google Plus" href="/auth/google_oauth2"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 498 498" enable-background="new 0 0 498 498"><path class="st0" d="M249 0c137.5 0 249 111.5 249 249s-111.5 249-249 249-249-111.5-249-249 111.5-249 249-249z"></path><path class="st1" d="M79.9 241.3c-3.5 45.1 26.1 89.3 68 105.3 41.7 16.1 95.2 5.1 121.8-32.4 17.6-23.7 21.4-54.1 19.3-82.8-34.2-.3-68.3-.2-102.4-.1-.1 12.2 0 24.3.1 36.5 20.4.7 40.9.4 61.3.7-9 45.3-70.6 59.9-103.1 30.4-33.5-25.9-31.9-82.8 2.9-106.9 24.3-19.4 59-14.6 83.3 2.2 9.6-8.8 18.5-18.3 27.2-28.1-20.2-16.2-45.1-27.7-71.5-26.4-55.3-1.9-106 46.4-106.9 101.6zM355.6 200.6l-.3 30.6-30.6.2v30.4l30.6.3c.1 10.2.1 20.4.2 30.5h30.5l.2-30.6 30.6-.3v-30.4l-30.6-.2c-.1-10.2-.2-20.4-.2-30.6-10.2.1-20.3.1-30.4.1z"></path></svg></a> 
+                    </div>                
+  
+
+
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Имя пользователя <span class="form-required" title="Обязательное поле">*</span></label>
+                            <!--label for="name" class="col-md-4 control-label">Ваш Логин <span class="form-required" title="Обязательное поле">*</span></label-->
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
+                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus placeholder="Логин">
 
                                 @if ($errors->has('name'))
                                     <span class="help-block">
@@ -26,11 +81,9 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-mail <span class="form-required" title="Обязательное поле">*</span></label>
-
+                            <!--label for="email" class="col-md-4 control-label">E-mail <span class="form-required" title="Обязательное поле">*</span></label--> 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
-
+                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required placeholder="E-mail"> 
                                 @if ($errors->has('email'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('email') }}</strong>
@@ -40,11 +93,9 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Пароль <span class="form-required" title="Обязательное поле">*</span></label>
-
+                            <!--label for="password" class="col-md-4 control-label">Пароль <span class="form-required" title="Обязательное поле">*</span></label--> 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
-
+                                <input id="password" type="password" class="form-control" name="password" required placeholder="Пароль"> 
                                 @if ($errors->has('password'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('password') }}</strong>
@@ -54,36 +105,37 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="password-confirm" class="col-md-4 control-label">Повторите пароль <span class="form-required" title="Обязательное поле">*</span></label>
+                            <!--label for="password-confirm" class="col-md-4 control-label">Повторите пароль <span class="form-required" title="Обязательное поле">*</span></label-->
 
                             <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required placeholder="Повторите пароль">
                             </div>
                         </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6">
-                                <div class="g-recaptcha" data-sitekey="6LeqBRcUAAAAACcuM1c_I3QijtlLaTr5rwtBXIDq"></div>
+ 
+                        <div class="div_c">
+                            <div class="g-recaptcha" data-sitekey="6LeqBRcUAAAAACcuM1c_I3QijtlLaTr5rwtBXIDq"></div>
+                        </div>
+                        @if ($errors->has('g-recaptcha-response'))
+                            <div class="a_c error">
+                                 Ошибка прохождения теста на человечность!<br /> Докажите, что Вы не робот...
                             </div>
-                            @if ($errors->has('g-recaptcha-response'))
-                                <div class="a_c error">
-                                     Ошибка прохождения теста на человечность!<br /> Докажите, что Вы не робот...
-                                </div>
-                            @endif
+                        @endif
+                        <div class="px_10"></div><div class="px_10"></div> 
+                        <div class="col-md-6 col-md-offset-4">
+                            <button type="submit" class="btn btn-primary cur_p">
+                                Зарегистрироваться
+                            </button>
                         </div>
 
+                        &nbsp;    
+                        <div class="a_c control-label">
+                            <a class="btn-link" href="{{ url('/login') }}">Войдите</a> с Вашим аккаунтом
+                        </div>  
 
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary cur_p">
-                                    Зарегистрироваться
-                                </button>
-                            </div>
                     </form>
                 </div>
             </div>
-            <a href="{{ url('/login') }}"><div class="mw_400 div_c"><div class="btn cur_p btn-sec">Войти</div></div></a>
-
-
-
+            
+ 
 
  @endsection

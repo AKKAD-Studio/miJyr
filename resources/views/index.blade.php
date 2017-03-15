@@ -48,7 +48,9 @@
 
     </head>
     <body>
-      @yield('content') 
+
+        @yield('top_menu')         
+        @yield('content') 
 
     </body>
 </html>

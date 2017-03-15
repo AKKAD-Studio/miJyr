@@ -92,7 +92,7 @@ height: 15px;
 border-radius: 50%;
 }
 .templatemo-site-header { 
-margin: 21px 5px; 
+margin: -21px 0 15px; 
 }
 .templatemo-site-header h1 {
 color: white;
@@ -172,15 +172,15 @@ display:none;
 
 .templatemo-left-nav li { 
 font-weight: 300;
-border-top: solid 1px rgba(0,0,0,0.25);
-box-shadow: inset 0px 1px 0px 0px rgba(255,255,255,0.075);
-padding: 0.5em 0 0.5em 0;
+border-bottom: solid 1px rgba(255,255,255,0.075);
+box-shadow: inset 0px -1px 0px 0px rgba(0,0,0,0.25);
+padding: 0.45em 0 0.45em 0;
 }
 
 .templatemo-left-nav a {
 
 display: block;
-padding: 0.7em 1em 0.7em 1em;
+padding: 0.45em 1em 0.45em 1em;
 text-decoration: none;
 border-radius: 0.4em;
 color: #d4dde0;
@@ -207,7 +207,7 @@ color: #fff;
 .templatemo-top-nav-container {
 font-size: 1.7em;
 background-color: white;
-padding: 15px 50px;
+padding: 0 25px 5px;
 box-shadow: 0px 0px 2px 2px rgba(161, 159, 159, 0.18);
 }
 .templatemo-top-nav li {
@@ -617,10 +617,10 @@ nav li { font-size: 1em; }
 @media screen and (max-width: 767px) {
 .templatemo-left-nav { background: #1f2124; }
 .templatemo-flex-row { display: block; }
-.templatemo-site-header { margin: 0 65px; }
+.templatemo-site-header { margin: -20px 65px 0; }
 .profile-photo-container {	display: none; /* Hide profile photo on mobile view */	}
 .templatemo-search-form { margin: 10px; }
-.templatemo-top-nav-container {	padding: 10px; }
+.templatemo-top-nav-container {	padding: 0 10px; }
 .templatemo-top-nav a {
 border-left: 1px solid #c5c5c5;
 padding: 0 7px;
@@ -646,23 +646,45 @@ font-size: 1.3em;
 cursor: pointer;
 display: block;
 position: fixed;
-top: 10px;
-right: 10px;
+top:    0px;
+right:  0px;
 z-index: 1000;
 }
 .mobile-menu-icon .fa {
 color: #fff;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0,0,0,0.25);
     font-size: 1.75em;
     padding: 10px;
 }
 
 }
-.logo {
+.logo_u {
+
+	min-width: 100px;
+
     background-color: #c94663;
     background-image: url(/public/libs/img/bg1.png);
-    padding: 1.75em 1.5em 1.75em 1.5em;
+    padding: 1.25em 1.5em 1.25em 1.5em;
     border-radius: 0.4em;
     text-align: center;
     box-shadow: inset 0px 0px 0px 1px rgba(255,255,255,0.15), 0 0.025em 0.15em 0em rgba(0,0,0,0.25);
+}
+
+.logo_u  h3{
+
+    font-size: 1.5em;
+    font-family: 'Open Sans Condensed', sans-serif;
+    list-style: none;
+    color: #fff;
+    font-weight: 100;
+    text-shadow: none;
+
+}
+
+.logo_l {
+display: block;
+background: url("/public/img/logo_l.png") no-repeat left center;
+height: 40px;
+margin: .15em 0 0;
+width:  45px;
 }
